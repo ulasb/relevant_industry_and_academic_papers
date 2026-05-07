@@ -109,7 +109,11 @@ For each topic that had at least one **accepted** item this run, append the acce
 
 The findings file is the running ledger of every accepted resource for that topic across all runs. Format: a markdown date heading + a bulleted list of items.
 
-When appending, if a heading for **today's date already exists** (i.e., re-running on the same day), add to that section rather than creating a duplicate one. Otherwise insert a new `## YYYY-MM-DD` section *above* any prior dated sections so newest is on top.
+When appending, if a heading for **today's date already exists** (i.e., re-running on the same day), add to that section rather than creating a duplicate one. Otherwise insert a new section *above* any prior dated sections so newest is on top. The date heading must be a markdown link to that run's `contents.md`:
+
+```
+## [YYYY-MM-DD](../runs/YYYY-MM-DD/contents.md)
+```
 
 Per-item format inside a date section:
 ```
@@ -124,7 +128,7 @@ If a findings file does not yet exist for a topic, create it with this skeleton 
 
 Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
 
-## YYYY-MM-DD
+## [YYYY-MM-DD](../runs/YYYY-MM-DD/contents.md)
 - ...
 ```
 
