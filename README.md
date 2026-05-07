@@ -10,7 +10,7 @@ A custom skill (`paper-watch`, defined in [`.claude/skills/paper-watch/SKILL.md`
 2. The skill searches the web for recent content across the **11 topics** below (default window: last 7 days, customizable).
 3. It presents up to 10 candidates per topic with a relevance pitch.
 4. You prune interactively to a top set per topic.
-5. The skill writes a digest to `<today>/contents.md`.
+5. The skill writes a digest to `runs/<today>/contents.md` and appends accepted items to per-topic ledgers in `findings/`.
 6. You review the diff and push.
 
 Manually triggered, not scheduled — so accept/reject can happen interactively.
@@ -43,9 +43,14 @@ To add, edit, or remove a topic: edit `topics/` directly. The skill picks up cha
 ├── .claude/skills/paper-watch/
 │   └── SKILL.md                    The paper-watch skill (project-scoped)
 ├── topics/                         Topic definitions (relevance, search strategy, sources)
-├── YYYY-MM-DD/                     One folder per run (date of the run)
-│   ├── contents.md                 The accepted picks, organized by topic
-│   └── rejected.md                 What was surfaced but rejected (for dedupe)
+├── runs/                           One folder per run (date of the run)
+│   └── YYYY-MM-DD/
+│       ├── contents.md             The accepted picks, organized by topic
+│       └── rejected.md             What was surfaced but rejected (for dedupe)
+├── findings/                       One file per topic — chronological ledger of every
+│   ├── 01-recommender-systems.md     accepted resource ever surfaced for that topic.
+│   ├── 02-search-and-ir.md           Use this to scan a topic's full history quickly.
+│   └── ...
 ├── learnings/                      Post-read notes & takeaways
 │   ├── README.md                   Format guide
 │   └── <paper-slug>.md             One per paper you took notes on

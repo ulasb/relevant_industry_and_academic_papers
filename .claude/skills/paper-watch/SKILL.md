@@ -23,7 +23,7 @@ Examples:
    - If invoked from inside a git repo whose `origin` ends with `relevant_industry_and_academic_papers(.git)?`, use the repo root.
    - Else, prompt the user for the path.
 2. Read `$REPO_ROOT/topics/*.md` — these define what to search for and the relevance lens.
-3. Read `$REPO_ROOT/seen.json` — `{"surfaced_urls": [...]}` — used to dedupe across weeks.
+3. Read `$REPO_ROOT/seen.json` — `{"surfaced_urls": [...]}` — used to dedupe across runs.
 4. Compute the search window (default: last 7 days).
 
 ## Search procedure (per topic)
@@ -73,7 +73,7 @@ After all topics: confirm the final list with the user before writing.
 
 ## Output format
 
-Write `$REPO_ROOT/<TODAY>/contents.md` with this structure:
+Write `$REPO_ROOT/runs/<TODAY>/contents.md` with this structure:
 
 ```markdown
 # Paper Digest — YYYY-MM-DD
@@ -99,23 +99,51 @@ Search window: YYYY-MM-DD → YYYY-MM-DD
 
 Only include topics where at least one paper was kept. Use the topic name (not the filename) as the section heading.
 
-Also write `$REPO_ROOT/<TODAY>/rejected.md` with the same format but for items the user explicitly rejected. (Items merely not-picked-as-top-10 don't go here — only those the user saw and said no to.) This is dedupe data, not for review.
+Also write `$REPO_ROOT/runs/<TODAY>/rejected.md` with the same format but for items the user explicitly rejected. (Items merely not-picked-as-top-10 don't go here — only those the user saw and said no to.) This is dedupe data, not for review.
 
-Append every URL that was *surfaced to the user* (whether kept or rejected) to `$REPO_ROOT/seen.json["surfaced_urls"]`. This prevents re-surfacing them in future weeks.
+Append every URL that was *surfaced to the user* (whether kept or rejected) to `$REPO_ROOT/seen.json["surfaced_urls"]`. This prevents re-surfacing them in future runs.
+
+## Update findings/
+
+For each topic that had at least one **accepted** item this run, append the accepted items to `$REPO_ROOT/findings/NN-<topic>.md` (the file matching the topic file's filename, e.g., `topics/01-recommender-systems.md` → `findings/01-recommender-systems.md`).
+
+The findings file is the running ledger of every accepted resource for that topic across all runs. Format: a markdown date heading + a bulleted list of items.
+
+When appending, if a heading for **today's date already exists** (i.e., re-running on the same day), add to that section rather than creating a duplicate one. Otherwise insert a new `## YYYY-MM-DD` section *above* any prior dated sections so newest is on top.
+
+Per-item format inside a date section:
+```
+- [<title>](<url>) — <source>, <pub date or year>
+```
+
+Keep the entry terse — it's a navigation index, not a summary. Full summary lives in `runs/<date>/contents.md`.
+
+If a findings file does not yet exist for a topic, create it with this skeleton before appending:
+```markdown
+# Findings: <Topic Name>
+
+Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
+
+## YYYY-MM-DD
+- ...
+```
+
+Only **accepted** items go into findings/. Rejected items are tracked only in `seen.json` (for dedupe) and `runs/<date>/rejected.md` (for the run record).
 
 ## Final step: hand off, don't push
 
 After writing the files, print a summary like:
 
 ```
-Wrote 2026-05-08/contents.md (N papers across M topics)
-Wrote 2026-05-08/rejected.md (K items)
+Wrote runs/2026-05-08/contents.md (N papers across M topics)
+Wrote runs/2026-05-08/rejected.md (K items)
 Updated seen.json (+P URLs)
+Appended N items across M topics to findings/
 
 Review with:
   cd $REPO_ROOT
   git diff
-  git add 2026-05-08/ seen.json
+  git add runs/2026-05-08/ findings/ seen.json
   git commit -m "Digest: 2026-05-08"
   git push
 ```
