@@ -1,16 +1,16 @@
 ---
 name: paper-watch
-description: Curate top industry+academic papers/posts from the last week across 11 topics relevant to a recruitment / two-sided jobboard marketplace. Searches the web, presents up to 10 candidates per topic, lets the user prune to a top-5, and writes a weekly digest into the relevant_industry_and_academic_papers repo. Manually triggered.
+description: Curate top industry+academic papers/posts from a recent time window across 11 topics relevant to a recruitment / two-sided jobboard marketplace. Searches the web, presents up to 10 candidates per topic, lets the user prune, and writes a digest into the relevant_industry_and_academic_papers repo. Manually triggered, runs ad-hoc.
 user_invocable: true
 ---
 
 # paper-watch
 
-Manually-triggered weekly digest builder. Run from inside the `relevant_industry_and_academic_papers` repo (or anywhere with `$REPO_ROOT` set to point to it).
+Manually-triggered, ad-hoc digest builder. Run from inside the `relevant_industry_and_academic_papers` repo (or anywhere with `$REPO_ROOT` set to point to it).
 
 ## Inputs
 
-Optional argument: a date range or single date. If omitted, defaults to the **last 7 days** ending today. The "week label" used for the output folder is **today's date** (YYYY-MM-DD), regardless of what window was searched.
+Optional argument: a date range or single date. If omitted, defaults to the **last 7 days** ending today. The label used for the output folder is **today's date** (YYYY-MM-DD), regardless of what window was searched. Runs are ad-hoc — no enforced cadence.
 
 Examples:
 - `/paper-watch` — last 7 days
@@ -73,10 +73,10 @@ After all topics: confirm the final list with the user before writing.
 
 ## Output format
 
-Write `$REPO_ROOT/weekly/<TODAY>/contents.md` with this structure (matches the existing `2026-04-24` format):
+Write `$REPO_ROOT/<TODAY>/contents.md` with this structure:
 
 ```markdown
-# Weekly Paper Digest — YYYY-MM-DD
+# Paper Digest — YYYY-MM-DD
 
 Search window: YYYY-MM-DD → YYYY-MM-DD
 
@@ -99,7 +99,7 @@ Search window: YYYY-MM-DD → YYYY-MM-DD
 
 Only include topics where at least one paper was kept. Use the topic name (not the filename) as the section heading.
 
-Also write `$REPO_ROOT/weekly/<TODAY>/rejected.md` with the same format but for items the user explicitly rejected. (Items merely not-picked-as-top-10 don't go here — only those the user saw and said no to.) This is dedupe data, not for review.
+Also write `$REPO_ROOT/<TODAY>/rejected.md` with the same format but for items the user explicitly rejected. (Items merely not-picked-as-top-10 don't go here — only those the user saw and said no to.) This is dedupe data, not for review.
 
 Append every URL that was *surfaced to the user* (whether kept or rejected) to `$REPO_ROOT/seen.json["surfaced_urls"]`. This prevents re-surfacing them in future weeks.
 
@@ -108,15 +108,15 @@ Append every URL that was *surfaced to the user* (whether kept or rejected) to `
 After writing the files, print a summary like:
 
 ```
-Wrote weekly/2026-05-08/contents.md (N papers across M topics)
-Wrote weekly/2026-05-08/rejected.md (K items)
+Wrote 2026-05-08/contents.md (N papers across M topics)
+Wrote 2026-05-08/rejected.md (K items)
 Updated seen.json (+P URLs)
 
 Review with:
   cd $REPO_ROOT
   git diff
-  git add weekly/2026-05-08/ seen.json
-  git commit -m "Weekly digest: 2026-05-08"
+  git add 2026-05-08/ seen.json
+  git commit -m "Digest: 2026-05-08"
   git push
 ```
 

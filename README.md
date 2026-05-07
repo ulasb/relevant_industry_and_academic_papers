@@ -1,16 +1,16 @@
 # Relevant Industry & Academic Papers
 
-A curated, topic-organized weekly digest of industry blog posts and academic papers worth reading to keep up with the cutting edge — scoped to topics relevant to a recruitment / two-sided jobboard marketplace.
+A curated, topic-organized digest of industry blog posts and academic papers worth reading to keep up with the cutting edge — scoped to topics relevant to a recruitment / two-sided jobboard marketplace. Run ad-hoc, as often or as rarely as you like.
 
 ## How it works
 
 A custom skill (`paper-watch`, defined in [`.claude/skills/paper-watch/SKILL.md`](./.claude/skills/paper-watch/SKILL.md)) does the heavy lifting:
 
 1. Run `/paper-watch` from inside this repo.
-2. The skill searches the web for last week's content across the **11 topics** below.
+2. The skill searches the web for recent content across the **11 topics** below (default window: last 7 days, customizable).
 3. It presents up to 10 candidates per topic with a relevance pitch.
-4. You prune interactively to the top 5 per topic.
-5. The skill writes a weekly digest to `weekly/<today>/contents.md`.
+4. You prune interactively to a top set per topic.
+5. The skill writes a digest to `<today>/contents.md`.
 6. You review the diff and push.
 
 Manually triggered, not scheduled — so accept/reject can happen interactively.
@@ -43,14 +43,13 @@ To add, edit, or remove a topic: edit `topics/` directly. The skill picks up cha
 ├── .claude/skills/paper-watch/
 │   └── SKILL.md                    The paper-watch skill (project-scoped)
 ├── topics/                         Topic definitions (relevance, search strategy, sources)
-├── weekly/                         Weekly digests (one folder per run)
-│   └── YYYY-MM-DD/
-│       ├── contents.md             The accepted top-5-per-topic
-│       └── rejected.md             What was surfaced but rejected (for dedupe)
+├── YYYY-MM-DD/                     One folder per run (date of the run)
+│   ├── contents.md                 The accepted picks, organized by topic
+│   └── rejected.md                 What was surfaced but rejected (for dedupe)
 ├── learnings/                      Post-read notes & takeaways
 │   ├── README.md                   Format guide
 │   └── <paper-slug>.md             One per paper you took notes on
-└── seen.json                       URL dedupe across weeks
+└── seen.json                       URL dedupe across runs
 ```
 
 ## Adding a learning
