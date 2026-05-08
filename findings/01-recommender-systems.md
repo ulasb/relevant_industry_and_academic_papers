@@ -2,6 +2,11 @@
 
 Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
 
+## [2026-05-08](../runs/2026-05-08/contents.md)
+- [Recommender Systems as Control Systems](https://arxiv.org/abs/2605.01503) — arXiv, May 2026
+- [Rethinking Recommendation Paradigms: From Pipelines to Agentic Recommender Systems (AgenticRS)](https://arxiv.org/html/2603.26100v1) — arXiv, Mar 2026
+- [Deep Research for Recommender Systems](https://arxiv.org/html/2603.07605) — arXiv, Mar 2026
+
 ## [2026-05-07](../runs/2026-05-07/contents.md)
 - [Engineering the next generation of LinkedIn's Feed](https://www.linkedin.com/blog/engineering/feed/engineering-the-next-generation-of-linkedins-feed) — LinkedIn Engineering, Mar 2026
 - [Meta Adaptive Ranking Model: Bending the Inference Scaling Curve to Serve LLM-Scale Models for Ads](https://engineering.fb.com/2026/03/31/ml-applications/meta-adaptive-ranking-model-bending-the-inference-scaling-curve-to-serve-llm-scale-models-for-ads/) — Meta Engineering, Mar 2026
