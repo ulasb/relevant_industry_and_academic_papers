@@ -2,6 +2,9 @@
 
 Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
 
+## [2026-05-15](../runs/2026-05-15/contents.md)
+- [Characterizing AI-Assisted Bot Traffic in Darknet Data: Implications for ICS and IIoT Security](https://arxiv.org/abs/2605.14209) — arXiv, May 14 2026
+
 ## [2026-05-08](../runs/2026-05-08/contents.md)
 - [Algorithmic Bias Audit Compliance: Navigating the 2026 Frontier](https://www.bochner.law/news/publications/2026-04-30-algorithmic-bias-audit-compliance-navigating-the-2026-frontier) — Bochner PLLC, Apr 30 2026
 - [AI Bias in Job Search Apps: Exposing Algorithmic Discrimination and Proven Fixes for 2026 Hiring](https://bestjobsearchapps.com/articles/en/ai-bias-in-job-search-apps-exposing-algorithmic-discrimination-and-proven-fixes-for-2026-hiring) — Best Job Search Apps, 2026

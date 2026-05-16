@@ -2,6 +2,9 @@
 
 Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
 
+## [2026-05-15](../runs/2026-05-15/contents.md)
+- [Real vs. Semi-Simulated: Rethinking Evaluation for Treatment Effect Estimation](https://arxiv.org/abs/2605.10430) — arXiv, May 11 2026
+
 ## [2026-05-08](../runs/2026-05-08/contents.md)
 - [InferenceEvolve: Towards Automated Causal Effect Estimators through Self-Evolving AI](https://arxiv.org/abs/2604.04274) — arXiv, Apr 2026
 

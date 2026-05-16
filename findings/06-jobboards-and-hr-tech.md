@@ -2,6 +2,9 @@
 
 Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
 
+## [2026-05-15](../runs/2026-05-15/contents.md)
+- [Reel Friends: Building Social Discovery that Scales to Billions](https://engineering.fb.com/2026/05/13/ml-applications/reel-friends-building-social-discovery-that-scales-to-billions/) — Engineering at Meta, May 13 2026
+
 ## [2026-05-07](../runs/2026-05-07/contents.md)
 - [Building a Large-Scale Recommendation System: People You May Know](https://www.linkedin.com/blog/engineering/recommendations/building-a-large-scale-recommendation-system-people-you-may-know) — LinkedIn Engineering
 - [AI Behind LinkedIn Recruiter Search and Recommendation Systems](https://www.linkedin.com/blog/engineering/recommendations/ai-behind-linkedin-recruiter-search-and-recommendation-systems) — LinkedIn Engineering

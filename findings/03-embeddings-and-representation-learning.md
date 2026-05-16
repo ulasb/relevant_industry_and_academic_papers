@@ -2,6 +2,9 @@
 
 Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
 
+## [2026-05-15](../runs/2026-05-15/contents.md)
+- [ML-Embed: Inclusive and Efficient Embeddings for a Multilingual World](https://arxiv.org/abs/2605.15081) — arXiv, May 14 2026
+
 ## [2026-05-07](../runs/2026-05-07/contents.md)
 - [Filtered Approximate Nearest Neighbor Search in Vector Databases: System Design and Performance Analysis](https://arxiv.org/abs/2602.11443) — arXiv, Feb 2026
 - [KScaNN: Scalable Approximate Nearest Neighbor Search on Kunpeng](https://arxiv.org/abs/2511.03298) — arXiv, Nov 2025

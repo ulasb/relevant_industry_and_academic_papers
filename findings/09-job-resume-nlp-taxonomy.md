@@ -2,6 +2,9 @@
 
 Chronological log of resources surfaced for this topic. See `runs/<date>/contents.md` for full summaries.
 
+## [2026-05-15](../runs/2026-05-15/contents.md)
+- [ConFit v3: Improving Resume-Job Matching with LLM-based Re-Ranking](https://arxiv.org/abs/2605.09760) — arXiv, May 10 2026
+
 ## [2026-05-08](../runs/2026-05-08/contents.md)
 - [Standard Occupation Classifier — A Natural Language Processing Approach](https://arxiv.org/html/2511.23057v1) — arXiv, Nov 2025
 
